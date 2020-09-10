@@ -1,4 +1,6 @@
 import { NuxtConfig } from '@nuxt/types'
+require('dotenv').config()
+
 const config: NuxtConfig = {
   srcDir: 'src',
   /*
@@ -36,7 +38,7 @@ const config: NuxtConfig = {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/firebase'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -46,6 +48,7 @@ const config: NuxtConfig = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/dotenv',
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
@@ -54,10 +57,22 @@ const config: NuxtConfig = {
    ** Nuxt.js modules
    */
   modules: [],
+
+  env: {
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY!,
+    FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN!,
+    FIREBASE_DATABASEURL: process.env.FIREBASE_DATABASEURL!,
+    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID!,
+    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET!,
+    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID!,
+    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID!,
+    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID!,
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
 }
+
 export default config

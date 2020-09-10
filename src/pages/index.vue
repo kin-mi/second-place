@@ -5,10 +5,10 @@
       <h2 class="transform -translate-y-20">2位を当てるクイズサイト</h2>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
+          @click="add"
         >
           問題を解く
         </a>
@@ -28,7 +28,16 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  mounted(): void {
+    this.$auth.signInAnonymously()
+  },
+  methods: {
+    async add(): Promise<void> {
+      await this.$firestore.collection('test').add({ test: 1 })
+    },
+  },
+})
 </script>
 
 <style>
