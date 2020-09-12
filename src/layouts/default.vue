@@ -25,31 +25,26 @@ html {
 }
 
 .button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+  @apply inline-block w-40;
+  @apply py-3 px-6;
+  @apply border border-green-700 rounded-md;
+  @apply text-green-700 no-underline;
 }
 
 .button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+  @apply text-white bg-green-700;
+  @apply cursor-pointer;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.button--gray {
+  @apply inline-block w-40;
+  @apply py-3 px-6;
+  @apply border border-blue-900 rounded-md;
+  @apply text-blue-900 no-underline;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.button--gray:hover {
+  @apply text-white bg-blue-900;
+  @apply cursor-pointer;
 }
 </style>
