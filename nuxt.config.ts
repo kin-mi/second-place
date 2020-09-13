@@ -56,7 +56,13 @@ const config: NuxtConfig = {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/dayjs'],
+  modules: [
+    '@nuxtjs/dayjs',
+    [
+      'vue-scrollto/nuxt',
+      { duration: 700, easing: [0, 0, 0.1, 1], offset: -100 },
+    ],
+  ],
 
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY!,

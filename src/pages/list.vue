@@ -8,14 +8,15 @@
           :key="index"
           class="infinite-scroll-list-item"
         >
-          <p class="text-lg">{{ question.title }}</p>
+          <p class="p-1 rounded-md bg-gray-200 text-lg">{{ question.title }}</p>
           <p class="text-sm">（全 {{ question.rankingSize }}問）</p>
-          <n-link
-            class="w-full text-right font-bold text-green-800 underline"
-            to="/"
-          >
-            挑戦する
-          </n-link>
+          <p class="w-full text-right">
+            <n-link
+              :to="'/q/' + question.id"
+              class="p-2 rounded-md bg-green-700 text-white text-sm shadow"
+              >挑戦する</n-link
+            >
+          </p>
         </li>
       </ul>
       <infinite-loading
@@ -66,7 +67,7 @@ export default Vue.extend({
         snap.docs.forEach((doc) => {
           const data = doc.data()
           this.questions.push({
-            id: data.id,
+            id: doc.id,
             title: data.title,
             rankings: [],
             rankingSize: data.rankingSize | 0,
@@ -88,6 +89,6 @@ export default Vue.extend({
 }
 
 .infinite-scroll-list-item {
-  @apply flex flex-col w-full max-w-sm mx-auto mt-2 p-4 border border-gray-200 bg-white shadow;
+  @apply flex flex-col w-full max-w-sm mx-auto mt-2 px-4 pt-4 pb-3 border border-gray-200 bg-white shadow;
 }
 </style>

@@ -30,7 +30,7 @@ export default Vue.extend({
 
 <style>
 .container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+  @apply w-full max-w-sm min-h-screen flex justify-center items-center text-center mx-auto;
 }
 .title {
   @apply font-sans block font-bold text-3xl text-gray-800;
