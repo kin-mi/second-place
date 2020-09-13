@@ -238,7 +238,7 @@ export default Vue.extend({
     async registerFirestore(): Promise<void> {
       const batch = this.$firestore.batch()
       const questionRef = this.$firestore
-        .collection('question')
+        .collection('questions')
         .doc(this.question.id)
       batch.set(questionRef, {
         title: this.question.title,

@@ -115,7 +115,7 @@ type dataType = {
 
 export default Vue.extend({
   async asyncData({ app, params, redirect }) {
-    const questionRef = app.$firestore.collection('question').doc(params.id)
+    const questionRef = app.$firestore.collection('questions').doc(params.id)
     const question = await questionRef.get()
     const rankingRef = questionRef.collection('rankings')
     const rankingSnap = await rankingRef.get()
@@ -205,7 +205,7 @@ export default Vue.extend({
     },
     result(): void {
       if (this.answered) return
-      const questionRef = this.$firestore.collection('question').doc(this.id)
+      const questionRef = this.$firestore.collection('questions').doc(this.id)
       const batch = this.$firestore.batch()
       this.answers.forEach((itemIndex, rankingIndex) => {
         const rankingRef = questionRef

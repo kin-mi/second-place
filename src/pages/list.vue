@@ -56,7 +56,7 @@ export default Vue.extend({
           ? this.questions.slice(-1)[0].createAt?.toDate()
           : this.$dayjs().add(1, 'month').toDate()
       const query = this.$firestore
-        .collection('question')
+        .collection('questions')
         .orderBy('createAt', 'desc')
         .startAfter(startAfterDate)
         .limit(GET_COUNT_LIMIT)
