@@ -9,6 +9,13 @@
         <n-link to="/list" class="button--green"> 2位を当てる </n-link>
         <n-link to="/register" class="button--gray"> 問題を作る </n-link>
       </div>
+      <p class="w-full bg-gray-200 p-1 text-sm mt-5">
+        作った人：<a
+          class="font-bold text-green-800 underline"
+          href="https://twitter.com/_kinmi"
+          >きんみ</a
+        >
+      </p>
     </div>
   </div>
 </template>
