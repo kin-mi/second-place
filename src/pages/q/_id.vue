@@ -226,8 +226,8 @@ export default Vue.extend({
             updateAt: this.$firebase.firestore.FieldValue.serverTimestamp(),
           })
         }
-        batch.commit()
       })
+      batch.commit()
       this.answered = true
     },
   },
