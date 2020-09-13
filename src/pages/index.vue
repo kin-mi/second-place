@@ -27,11 +27,6 @@ export default Vue.extend({
   mounted(): void {
     this.$auth.signInAnonymously()
   },
-  methods: {
-    async add(): Promise<void> {
-      await this.$firestore.collection('test').add({ test: 1 })
-    },
-  },
 })
 </script>
 
