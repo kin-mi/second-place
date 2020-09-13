@@ -42,6 +42,15 @@
           }}%）</span
         >
       </h1>
+      <template v-if="answered">
+        <p
+          v-if="ranking.items[answers[rankingIndex]] === ranking.no2"
+          class="text-3xl text-blue-800"
+        >
+          正解!!
+        </p>
+        <p v-else class="text-3xl text-red-800">不正解…</p>
+      </template>
       <div
         v-if="answered && (ranking.description || ranking.source)"
         class="w-full pt-1 pb-2 px-2 mt-1 border border-gray-400 bg-gray-100 rounded"
