@@ -6,6 +6,7 @@
         <span class="text-xl text-red-800">{{ correctCount }}</span> /
         {{ rankings.length }} 問正解！！
       </p>
+      <p class="text-xs text-black">↓ 結果をTwitterでシェア ↓</p>
       <a
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
         class="twitter-share-button"

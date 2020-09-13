@@ -130,10 +130,27 @@
       <spinner class="bg-green-800" />
     </div>
 
-    <p v-if="invlid" class="text-xs text-red-600">未入力の項目があります</p>
-    <p v-if="completed" class="text-xs text-blue-600 font-bold">
-      登録が完了しました
-    </p>
+    <p v-if="invlid" class="text-base text-red-600">未入力の項目があります</p>
+    <template v-if="completed">
+      <p class="text-base text-blue-600 font-bold">登録が完了しました</p>
+      <p class="text-xs text-black">↓ Twitterでシェア ↓</p>
+      <a
+        href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+        class="twitter-share-button"
+        :data-text="`「${question.title}」を作成しました!!
+      #2位じゃダメなんですか
+      `"
+        :data-url="`https://second-place.vercel.app/q/${question.id}`"
+        data-lang="ja"
+        >Tweet</a
+      >
+      <div
+        is="script"
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"
+      />
+    </template>
     <n-link to="/" class="mt-10 text-sm text-blue-800"> トップへ戻る </n-link>
   </div>
 </template>
