@@ -36,16 +36,6 @@ export default Vue.extend({
 </script>
 
 <style>
-.container {
-  @apply w-full max-w-sm min-h-screen flex justify-center items-center text-center mx-auto;
-}
-.title {
-  @apply font-sans block font-bold text-3xl text-gray-800;
-}
-.subtitle {
-  @apply font-sans block text-xl text-gray-700;
-}
-
 .links {
   @apply flex flex-col justify-center items-center;
 }

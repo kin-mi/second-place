@@ -137,10 +137,10 @@
       <a
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
         class="twitter-share-button"
-        :data-text="`「${shareTitle}」を作成しました!!
+        :data-text="`「${shareData.title}」を作成しました!!
       #2位じゃダメなんですか #web1week
       `"
-        :data-url="`https://second-place.vercel.app/q/${question.id}`"
+        :data-url="`https://second-place.vercel.app/q/${shareData.id}`"
         data-lang="ja"
         >Tweet</a
       >
@@ -164,7 +164,7 @@ type dataType = {
   processing: boolean
   completed: boolean
   question: question
-  shareTitle: string
+  shareData: { title: string; id: string }
 }
 
 const initialRanking: ranking = {
@@ -194,7 +194,7 @@ export default Vue.extend({
           },
         ],
       },
-      shareTitle: '',
+      shareData: { id: '', title: '' },
     }
   },
   methods: {
@@ -219,7 +219,8 @@ export default Vue.extend({
         this.processing = true
         await this.registerFirestore().then(() => {
           this.completed = true
-          this.shareTitle = this.question.title
+          this.shareData.id = this.question.id
+          this.shareData.title = this.question.title
           this.reset()
         })
         this.processing = false
