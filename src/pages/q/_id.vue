@@ -16,12 +16,12 @@
         data-lang="ja"
         >Tweet</a
       >
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      ></script>
     </template>
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
     <section
       v-for="(ranking, rankingIndex) in rankings"
       :key="ranking.itemId"
