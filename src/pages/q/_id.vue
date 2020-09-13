@@ -13,7 +13,7 @@
         :data-text="`「${title}」で ${correctCount}/${rankings.length}問 正解しました！
       #2位じゃダメなんですか
       `"
-        data-url="https://second-place.vercel.app/"
+        :data-url="`https://second-place.vercel.app/q/${id}`"
         data-lang="ja"
         >Tweet</a
       >
