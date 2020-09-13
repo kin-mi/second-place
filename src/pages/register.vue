@@ -24,11 +24,19 @@
             :required="checked && ranking.title === ''"
           />
           <input
+            :id="index + 'description'"
+            v-model="ranking.description"
+            :name="index + 'description'"
+            type="text"
+            placeholder="解説（任意）"
+            class="form-input source mt-1 w-full max-w-sm mx-auto"
+          />
+          <input
             :id="index + 'source'"
             v-model="ranking.source"
             :name="index + 'source'"
             type="text"
-            placeholder="ソース（任意）"
+            placeholder="ソースURL（任意）"
             class="form-input source mt-1 w-full max-w-sm mx-auto"
           />
         </div>
@@ -133,19 +141,6 @@
 import Vue from 'vue'
 import { v4 as uuid } from 'uuid'
 
-type ranking = {
-  id: string
-  title: string
-  source: string
-  no1: string
-  no2: string
-  no3: string
-}
-type question = {
-  id: string
-  title: string
-  rankings: ranking[]
-}
 type dataType = {
   checked: boolean
   invlid: boolean
@@ -153,9 +148,11 @@ type dataType = {
   completed: boolean
   question: question
 }
+
 const initialRanking: ranking = {
   id: '',
   title: '',
+  description: '',
   source: '',
   no1: '',
   no2: '',
@@ -212,6 +209,7 @@ export default Vue.extend({
       this.question.rankings.forEach((ranking, index) => {
         if (
           ranking.title === '' &&
+          ranking.description === '' &&
           ranking.source === '' &&
           ranking.no1 === '' &&
           ranking.no2 === '' &&
@@ -244,6 +242,7 @@ export default Vue.extend({
         .doc(this.question.id)
       batch.set(questionRef, {
         title: this.question.title,
+        rankingSize: this.question.rankings.length,
         createUserId: this.$auth.currentUser.uid,
         createAt: this.$firebase.firestore.FieldValue.serverTimestamp(),
       })
@@ -251,6 +250,7 @@ export default Vue.extend({
         const rankingRef = questionRef.collection('rankings').doc(ranking.id)
         batch.set(rankingRef, {
           title: ranking.title,
+          description: ranking.description,
           source: ranking.source,
           no1: ranking.no1,
           no2: ranking.no2,

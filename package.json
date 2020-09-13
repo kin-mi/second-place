@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/dayjs": "^1.1.9",
     "@types/uuid": "^8.3.0",
     "firebase": "^7.19.1",
     "nuxt": "^2.14.0",
     "save": "^2.4.0",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.0",

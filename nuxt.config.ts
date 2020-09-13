@@ -38,7 +38,7 @@ const config: NuxtConfig = {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/firebase'],
+  plugins: ['~/plugins/firebase', '~/plugins/infiniteloading'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -56,7 +56,7 @@ const config: NuxtConfig = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/dayjs'],
 
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY!,

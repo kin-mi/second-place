@@ -6,7 +6,7 @@
         2位を当てるクイズサイト
       </h2>
       <div class="links">
-        <a target="_blank" class="button--green" @click="add"> 2位を当てる </a>
+        <n-link to="/list" class="button--green"> 2位を当てる </n-link>
         <n-link to="/register" class="button--gray"> 問題を作る </n-link>
       </div>
     </div>
